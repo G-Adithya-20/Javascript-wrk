@@ -1,0 +1,67 @@
+<!-- You are designing a simple calculator for a small grocery shop. 
+The shop sells three items: rice, sugar, and wheat.
+Your task is to:
+
+Create variables for the item names, prices, and quantities purchased.
+Calculate and display the cost for each item (price × quantity).
+Calculate the total bill for the customer.
+Change the quantity of one item and recalculate the total.
+Display the updated total bill.
+Use only what you’ve learned today, and make sure to follow variable naming rules. 
+Output all the values using console.log(). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <h2>Grocery Shop Calculator</h2>
+
+    <p id="ricecost"></p>
+    <p id="sugarcost"></p>
+    <p id ="wheatcost"></p>
+    <p id="total"></p>
+    <p id="updated"></p>
+
+    <script>
+        var rice,sugar,wheat;
+
+        var riceprice=50;
+        var sugarprice=40;
+        var wheatprice=70;
+
+        var riceqty=2;
+        var sugarqty=3;
+        var wheatqty=2;
+
+        var ricecost=riceprice*riceqty;
+        var sugarcost=sugarqty*sugarprice;
+        var wheatcost=wheatqty*wheatprice;
+
+        document.getElementById("ricecost").innerHTML="Rice cost : "+ricecost;
+        document.getElementById("sugarcost").innerHTML="Sugar cost : "+sugarcost;
+        document.getElementById("wheatcost").innerHTML="Wheat cost : "+wheatcost;
+
+        var total=ricecost+sugarcost+wheatcost;
+
+        document.getElementById("total").innerHTML="Total Bill : "+total;
+
+        console.log("Rice cost: ₹" + ricecost);
+        console.log("Sugar cost: ₹" + sugarcost);
+        console.log("Wheat cost: ₹" + wheatcost);
+        console.log("Total Bill: ₹" + total);
+
+        sugarqty=5;
+
+        var changedtotal = ricecost+(sugarprice*sugarqty)+wheatcost;
+
+        document.getElementById("updated").innerHTML="Updated bill : "+changedtotal;
+        console.log("Updated Total Bill:"+changedtotal);
+
+    </script>
+</body>
+</html>
