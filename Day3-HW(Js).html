@@ -1,0 +1,51 @@
+<!-- You are creating a helper tool for a website admin. The admin wants to check
+and clean user bios before displaying them.
+
+Your task is to:
+
+Create an object userProfile with properties:
+username (e.g., " CoolUser99 ")
+bio (e.g., " I LOVE coding! JavaScript is Great!!! ")
+Create a function cleanUserBio(profile) that:
+Trims and converts the username and bio to lowercase
+Replaces all occurrences of "javascript" with "JS"
+Counts the total number of characters in the bio after cleanup
+Returns a new object with cleaned username, cleaned bio, and the bio length.
+Output the final result using console.log. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool</title>
+</head>
+<body>
+    <p id="trim"></p>
+      <p id="lower"></p>
+    <script>
+        var userProfile={
+            username:'CoolUser99',
+            bio:'I LOVE coding! JavaScript is Great!!! ',
+        };
+            function cleanUserBio(profile)
+            {
+                let  cleanUsername=profile.username.trim().toLowerCase();
+                let cleanBio=profile.bio.trim().toLowerCase();
+
+                cleanBio=cleanBio.replace(/javascript/gi,"JS");
+
+                let biolength=cleanBio.length;
+
+                return{
+                    username:cleanUsername,
+                    bio:cleanBio,
+                    biolength:biolength
+                };
+            }
+
+        let result=cleanUserBio(userProfile);
+        console.log(result);
+    </script>
+</body>
+</html>
