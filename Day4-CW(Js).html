@@ -1,0 +1,60 @@
+<!-- You are building a small statistics widget for a website.
+
+Generate a random whole number between 1 and 100.
+Simulate a user score as a userscore value (like "75").
+Convert the user score userscore to a number using type conversion (without using any conditionals).
+Show the difference between the random number and user score.
+Show the rounded square root of the user score.
+
+Show the π constant (pi) from JavaScript.
+Convert the userscore "50" to a number using implicit conversion and multiply it by 2. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stat Widget</title>
+</head>
+<body>
+    <p id="ran"> </p>
+    <p id="str"></p>
+    <p id="userscore"></p>
+    <p id="diff"> </p>
+    <p id="sqrt"> </p>  
+    <p id="pi"></p>
+    <p id="result"> </p>
+    
+    <script>
+
+        function random(min,max)
+        {
+            min=Math.ceil(min);
+            max=Math.ceil(max);
+            return Math.floor(Math.random()*(max-min+1))+min; //1-100
+        }
+
+        xRandom=random(1,100);
+        document.getElementById("ran").innerHTML="Random no:"+" "+xRandom;
+
+        var userscore="75";
+        document.getElementById("str").innerHTML=userscore+" "+typeof(userscore);
+
+
+        userscore = Number(userscore);
+        document.getElementById("userscore").innerHTML=userscore+" "+typeof(userscore);
+
+        var difference=Math.abs(xRandom-userscore);
+        document.getElementById("diff").innerHTML="Absolute Difference of random and userscore :"+" "+difference;
+
+        var squareRoot=Math.round(Math.sqrt(userscore));
+        document.getElementById("sqrt").innerHTML="Rounded Square Root of "+ userscore+" is "+squareRoot;
+
+        document.getElementById("pi").innerHTML=Math.PI;
+
+        var res='50'*2;
+        document.getElementById("result").innerHTML=res;
+
+    </script>
+</body>
+</html>

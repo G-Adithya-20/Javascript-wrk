@@ -1,0 +1,63 @@
+<!-- You are creating a simple game result generator for a beginner-level web game.
+
+
+Create a script that:
+Randomly picks a number between 1 and 50 (representing a mystery level).
+Takes a user input score (as a string, e.g., "45") and converts it into a number.
+
+Shows the absolute difference between the mystery level and the user's score.
+Calculates and logs the square root of the user’s score.
+
+Logs the value of Pi (?) using a math property.
+Uses implicit conversion to multiply the string "20" by 5.
+Uses the Math.max() and Math.min() methods to display the highest and lowest values among 10, 20, and the mystery level. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <p id="mys"></p>
+    <p id="scr"></p>
+    <p id="scr2"></p>
+    <p id="diff"></p>
+    <p id="log"></p>
+    <p id="logpi"></p>
+    <p id="prdt"></p>
+    <p id="maxmin"></p>
+    <script>
+        function mystery(min,max)
+        {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        mys=mystery(1,50);
+        document.getElementById("mys").innerHTML="Mystery Level"+" "+mys;
+
+        let score=prompt("Enter a number");
+        document.getElementById("scr").innerHTML=score+" "+typeof(score);
+
+        score=Number(score);
+        document.getElementById("scr2").innerHTML=score+" "+typeof(score);
+
+        var absDiff=Math.abs(mys-score);
+        document.getElementById("diff").innerHTML="Absolute Difference of mystery and userscore :"+" "+absDiff;
+
+        let logSqrtScore=Math.log(Math.sqrt(score));
+        document.getElementById("log").innerHTML="Log the square root of the score:"+" "+logSqrtScore;
+
+        let pi=Math.log(Math.PI);
+        document.getElementById("logpi").innerHTML="Log the value of pie"+" : "+pi;
+
+        let str="20"*5;
+        document.getElementById("prdt").innerHTML="Multiply the string `20` by 5"+" : "+str;
+
+        const num=[10,20,mys];
+        var max=Math.max(10,20,mys);
+        var min=Math.min(10,20,mys);
+        document.getElementById("maxmin").innerHTML="Maximum and Minimum of "+num+" :"+" "+max+" "+","+min;
+    </script>
+</body>
+</html>
