@@ -1,0 +1,79 @@
+<!-- You are building a simple input system for a small game. 
+ The game gives players 5 chances to guess a number between 1 and 5.
+ The game should work like this:
+
+Ask the player to enter a number between 1 and 5.
+If the number is 3, display: "You guessed it right!" and stop the game.
+If the number is not 3, display: "Wrong guess. Try again."
+If the player enters a number outside the range (not 1 to 5), display "Invalid input" and skip that chance using continue.
+If the player doesn’t guess the correct number within 5 valid chances, display "Game over".
+
+You must use:
+A loop
+An if-else statement
+A break statement
+A continue statement
+A switch to display the number they entered in words (e.g., 1 = "One") -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess - gaming</title>
+</head>
+
+<body>
+    <p id="output"></p>
+    <script>
+
+        let result = "";
+        for (let i = 1; i <= 5; i++) {
+            let no = Number(prompt("You have 5 chances to guess a no between 1-5"));
+
+            if (no < 1 || no > 5) {
+                result = result + "Invalid choice"+"<hr>";
+                continue;
+            }
+
+            let word = "";
+
+            switch (no) {
+                case 1:
+                    word: "one";
+                    break;
+                case 2:
+                    word: "two";
+                    break;
+                case 3:
+                    word: "three";
+                    break;
+                case 4:
+                    word: "four";
+                    break;
+                case 5:
+                    word: "five";
+                    break;
+            }
+
+            if (no == 3) {
+                result += `${word} — You guessed it right!<br><br>`;
+                break;
+            }
+            else {
+                result += `${word} — Wrong guess. Try again.<br><br>`;
+            }
+
+            if(no!=3)
+            {
+                result += "Game Over"; 
+            }
+            result = result + "<hr>"
+        }
+        
+    document.getElementById("output").innerHTML = result;
+    </script>
+</body>
+
+</html>
