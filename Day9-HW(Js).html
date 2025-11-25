@@ -1,0 +1,48 @@
+<!-- You are creating a simple comment filtering system for a blog site. 
+You need to write a JavaScript function that takes a user's comment and performs the following:
+Check whether the comment contains any of the following banned words: "bad", "ugly", or "stupid" (case-insensitive).
+If it contains a banned word, replace it with "***" using a regular expression.
+Count how many numbers are mentioned in the comment.
+Count how many words in the comment begin with a capital letter.
+Return a final message with the cleaned comment, number count, and capitalized word count.
+Test the function with this comment:
+ "I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great. -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p>Click the below button to clean the comment.</p>
+    <button onclick="checkComment()">Click here</button>
+    <p id="checkComment"> </p>
+    <script>
+        function checkComment()
+        {
+        let comment="Comment : I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great."+"<br><br>";
+        let output="";
+
+        let banWrds=/(bad|ugly|stupid)/ig;
+        let check=banWrds.test(comment);
+        output+=comment;
+        output+= "Contains banned words(bad|ugly|stupid) : "+check+"<br><br>";
+
+        let rep=comment.replace(banWrds,"***");
+        output+="Cleaned comment: " + rep+"<br><br>";
+
+        let numbers=/\d/g;
+        let numbPatt=comment.match(numbers);
+        output += "Numbers found: " +numbPatt+"<br><br>";
+
+        let count2=comment.match(/\b[A-Z]/g);
+        output+= "Capitalized words: "+count2+"<br><br>";
+
+         document.getElementById("checkComment").innerHTML = output+"<br><br>";
+
+        }
+    </script>
+ </body>
+ </html>
